@@ -131,7 +131,7 @@ def loops_3():
         for j in range(10):
             number_row.append(i)
         number_square.append(number_row)
-    print(number_square)
+    print (number_square)
     return number_square
 
 
