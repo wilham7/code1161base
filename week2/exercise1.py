@@ -8,8 +8,9 @@ Make sure that your code still runs without any errors by pressing
 from __future__ import division
 from __future__ import print_function
 import os
+
 print("hello! Let's get started")
-jobs = ['get', 'this'
+jobs = ['get', 'this',
         'file', 'to', 'pass',
         'the', 'linter']
 InOtherWords = "make it show no linter errors"
@@ -20,8 +21,8 @@ print(1+1, "is smaller than", 7*0.5, "is",
 
 
 def usefulFunction():
-    """Print the current working directory."""
+    """Not useful function."""
+    print(os.getcwd())
 
 
-print(os.getcwd())
 usefulFunction()
