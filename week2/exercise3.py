@@ -101,7 +101,6 @@ def loops_2():
     star_square = []
     for j in range(10):
         star_square.append(loops_1c(number_of_items=10, symbol="*"))
-
     return star_square
 
 
@@ -154,7 +153,6 @@ def loops_4():
     number_square = []
     for i in range(10):
         number_square.append(range(10))
-
     print(number_square)
     return number_square
 
@@ -213,7 +211,6 @@ def loops_6():
     TIP: look out for the starting condition.
     """
     the_wedge = []
-
     for i in range(10):
         row = []
         for j in range(i + 1):
