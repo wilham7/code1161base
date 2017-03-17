@@ -243,7 +243,21 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pass
+    pyramid = []
+    blank = 4
+    dot = 1
+    for i in range(5):
+        plane = []
+        for j in range(blank):
+            plane.append(" ")
+        for j in range(dot):
+            plane.append("*")
+        for j in range(blank):
+            plane.append(" ")
+        blank -= 1
+        dot += 2
+        pyramid.append(plane)
+    return pyramid
 
 
 def lp(some_kind_of_list, exercise_name):
