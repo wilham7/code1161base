@@ -129,9 +129,8 @@ def loops_3():
     for i in range(10):
         number_row = []
         for j in range(10):
-            number_row.append(i)
+            number_row.append(str(i))
         number_square.append(number_row)
-    print (number_square)
     return number_square
 
 
@@ -150,10 +149,13 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
+
     number_square = []
     for i in range(10):
-        number_square.append(range(10))
-    print(number_square)
+        number_row = []
+        for j in range(10):
+            number_row.append(str(j))
+        number_square.append(number_row)
     return number_square
 
 
@@ -213,8 +215,8 @@ def loops_6():
     the_wedge = []
     for i in range(10):
         row = []
-        for j in range(i + 1):
-            row.append(j)
+        for j in range((i) + 1):
+            row.append(str(j))
         the_wedge.append(row)
     return the_wedge
 
