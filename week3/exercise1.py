@@ -49,7 +49,15 @@ def stubborn_asker(low, high):
     """
     message = "Give me a number between {low}, and {high}:".format(low=low,
                                                                    high=high)
-    prnit(message)
+    while True:
+        input_number = int(raw_input(message))
+        if low < input_number < high:
+            print("Thanks! Looks Good.".format(input_number))
+            return input_number
+    else:
+        print("{input} isn't between {low}, and {high}".format(input=input_number,
+                                                               low=low,
+                                                               high=high))
 
 
 def not_number_rejector(message):
