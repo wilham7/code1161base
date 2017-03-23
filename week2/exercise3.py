@@ -68,11 +68,6 @@ def star_map():
     return result
 
 
-
-
-
-
-
 def loops_1c(number_of_items=5, symbol="#"):
     """Respond to variables.
 
@@ -273,9 +268,10 @@ def loops_7():
         printNum += 2
         starting -= 1
 
-        return pyramidArray
+    return pyramidArray
 
-    print(loops_7())
+
+print(loops_7())
 
 
 def lp(some_kind_of_list, exercise_name):
