@@ -89,7 +89,14 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    pass
+    passed = False
+    while passed is False:
+        passed = True
+        try:
+            inputted = int(str(raw_input(message)))
+        except ValueError:
+            passed = False
+    return inputted
 
 
 def super_asker(low, high):
@@ -98,7 +105,19 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    pass
+    passed = False
+    inputted = "placeholder"
+    while passed is False:
+        passed = True
+        try:
+            inputted = int(str(raw_input()))
+        except ValueError:
+            passed = False
+        if low < inputted < high:
+            passed = True
+        else:
+            passed = False
+    return inputted
 
 
 if __name__ == "__main__":
