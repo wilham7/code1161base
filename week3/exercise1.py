@@ -25,8 +25,6 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-
-
     second_loop = []
     for i in range(start, stop, step):
         second_loop.append(i)
@@ -82,7 +80,6 @@ def stubborn_asker(low, high):
                   format(input=input_number, low=low, high=high))
 
 
-
 def not_number_rejector(message):
     """Ask for a number repeatedly until actually given one.
 
@@ -90,7 +87,14 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    pass
+    passed = False
+    while passed is False:
+            passed = True
+            try:
+                inputted = int(str(raw_input(message)))
+            except ValueError:
+                passed = False
+    return inputted
 
 
 def super_asker(low, high):
@@ -99,7 +103,20 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    pass
+    passed = False
+    inputted = "placeholder"
+    while passed is False:
+            passed = True
+            try:
+                inputted = int(str(raw_input()))
+            except ValueError:
+                passed = False
+            if low < inputted < high:
+                passed = True
+            else:
+                passed = False
+    return inputted
+
 
 if __name__ == "__main__":
     # this section does a quick test on your results and prints them nicely.
