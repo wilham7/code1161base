@@ -15,7 +15,7 @@ def loop_ranger(start, stop=None, step=1):
     new_list = []
 
     for i in range(start, stop, step):
-        new_list.qppend(i)
+        new_list.append(i)
 
     return new_list
 
@@ -99,7 +99,20 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    pass
+
+    message = "Give me a number between {low}, and {high}:".format(low=low,
+                                                                   high=high)
+    while True:
+        try:
+            input_number = int(raw_input(message))
+            if low < input_number < high:
+                print("Thanks! Looks Good.".format(input_number))
+                return input_number
+            else:
+                print("{input} isn't between {low}, and {high}".format(
+                                    input=input_number, low=low, high=high))
+        except Exception as e:
+            print("Sorry, try again({}).".format(e))
 
 
 if __name__ == "__main__":
