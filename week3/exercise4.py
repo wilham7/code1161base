@@ -28,7 +28,7 @@ def binary_search(low, high, actual_number):
       tests aren't that smart yet.)
     """
 
-    tries = 1
+    tries = 0
     guess = int(round((high + low) / 2, 0))
     while guess != actual_number:
         if guess > actual_number:
