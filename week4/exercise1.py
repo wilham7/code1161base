@@ -28,7 +28,16 @@ def success_is_relative():
     # this depends on excecution context. Take a look at your CWD and remember
     # that it changes.
     # print(path, CWD)
-    pass
+    mode = "r"
+    file_path = "week1/pySuccessMessage.json"
+    successmessage = open(file_path, mode)
+    messageread = successmessage.read()
+    successmessage.close()
+    print(messageread)
+    return messageread.strip()
+
+
+success_is_relative()
 
 
 def get_some_details():
@@ -48,12 +57,16 @@ def get_some_details():
          dictionaries.
     """
     json_data = open(LOCAL + "/lazyduck.json").read()
-
     data = json.loads(json_data)
-    return {"lastName":       None,
-            "password":       None,
-            "postcodePlusID": None
+    postcodevalue = data["results"][0]["location"]["postcode"]
+    idvalue = data["results"][0]["id"]["value"]
+    return {"lastName":       data["results"][0]["name"]["last"],
+            "password":       data["results"][0]["login"]["password"],
+            "postcodePlusID": int(postcodevalue) + int(idvalue)
             }
+
+
+get_some_details()
 
 
 def wordy_pyramid():
