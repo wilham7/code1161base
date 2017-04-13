@@ -28,7 +28,11 @@ def success_is_relative():
     # this depends on excecution context. Take a look at your CWD and remember
     # that it changes.
     # print(path, CWD)
-    pass
+    mode = "r"  # from the docs
+    file_path = "week1/pySuccessMessage.json"
+    reading = open(file_path, mode)
+    return reading.read().strip()
+    reading.close
 
 
 def get_some_details():
@@ -47,12 +51,17 @@ def get_some_details():
          dictionary, you'll need integer indeces for lists, and named keys for
          dictionaries.
     """
-    json_data = open(LOCAL + "/lazyduck.json").read()
+    json_data = open("week4/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName":       None,
-            "password":       None,
-            "postcodePlusID": None
+    lastName = data['results'][0]['name']['last']
+    password = data['results'][0]['login']['password']
+    postcode = data['results'][0]['location']['postcode']
+    iD = data['results'][3]['id']['value']
+    psid = int(postcode) + int(iD)
+    return {"lastName":       lastName,
+            "password":       password,
+            "postcodePlusID": psid
             }
 
 
@@ -88,7 +97,13 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. ?len=
     """
-    pass
+
+    pyramid1 = []
+    pyramid2 = []
+    url = "http://www.setgetgo.com/ranomword/get.php?len="
+        for length in range(3, 21)
+
+    # requests.get(url+str(length)).text
 
 
 def wunderground():
