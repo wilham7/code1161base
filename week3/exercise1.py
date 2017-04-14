@@ -72,13 +72,10 @@ def stubborn_asker(low, high):
             print("Thanks! Looks Good.".format(input_number))
             return input_number
     else:
-<<<<<<< HEAD
         print("{input} isn't between {low}, and {high}".format
               (input=input_number, low=low, high=high))
-=======
         print("{input} isn't between {low}, and {high}".format(
                             input=input_number, low=low, high=high))
->>>>>>> b610a0d4bdf06ec83c26e6cf121b0804dc06e06a
 
 
 def not_number_rejector(message):
