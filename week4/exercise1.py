@@ -57,7 +57,7 @@ def get_some_details():
     lastName = data['results'][0]['name']['last']
     password = data['results'][0]['login']['password']
     postcode = data['results'][0]['location']['postcode']
-    iD = data['results'][3]['id']['value']
+    iD = data['results'][0]['id']['value']
     psid = int(postcode) + int(iD)
     return {"lastName":       lastName,
             "password":       password,
@@ -97,11 +97,20 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. ?len=
     """
-
-    pyramid1 = []
-    pyramid2 = []
-    url = "http://www.setgetgo.com/ranomword/get.php?len="
-        for length in range(3, 21)
+    import requests
+    baseURL = "http://www.setgetgo.com/randomword/get.php?len="
+    pyramid_list = []
+    for i in range(3, 21, 2):
+        url = baseURL + str(i)
+        r = requests.get(url)
+        message = r.text
+        pyramid_list.append(message)
+    for i in range(20, 3, -2):
+        url = baseURL + str(i)
+        r = requests.get(url)
+        message = r.text
+        pyramid_list.append(message)
+    return pyramid_list
 
     # requests.get(url+str(length)).text
 
@@ -118,7 +127,7 @@ def wunderground():
          variable and then future access will be easier.
     """
     base = "http://api.wunderground.com/api/"
-    api_key = "YOUR KEY - REGISTER TO GET ONE"
+    api_key = "95681f16b10517e3"
     country = "AU"
     city = "Sydney"
     template = "{base}/{key}/conditions/q/{country}/{city}.json"
@@ -126,11 +135,12 @@ def wunderground():
     r = requests.get(url)
     the_json = json.loads(r.text)
     obs = the_json['current_observation']
+    obs2 = obs['display_location']
 
-    return {"state":           None,
-            "latitude":        None,
-            "longitude":       None,
-            "local_tz_offset": None}
+    return {"state":           obs2['state'],
+            "latitude":        obs2['latitude'],
+            "longitude":       obs2['longitude'],
+            "local_tz_offset": obs['local_tz_offset']}
 
 
 def diarist():
@@ -146,7 +156,20 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
-    pass
+    mode = "r"  # from the docs
+    file_path = "week4/Trispokedovetiles(laser).gcode"
+    reading = open(file_path, mode)
+    mycount = 0
+    for line in reading:
+        if 'M10 P1' in line:
+            mycount = mycount + 1
+    reading.close
+
+    mode = "w"  # from the docs
+    file_path = "week4/lasers.pew"
+    output = open(file_path, mode)
+    output.write(str(mycount))
+    output.close()
 
 
 if __name__ == "__main__":
