@@ -99,7 +99,7 @@ def wordy_pyramid():
     url = "http://randomword.setgetgo.com/get.php?len="
     pyramid = []
     lengthWord = 3
-    while lengthWord < 20:
+    while lengthWord < 21:
         res = requests.get(url + str(lengthWord)).text
         pyramid.append(res)
         lengthWord += 2
@@ -154,8 +154,8 @@ def diarist():
          the test will have nothing to look at.
     """
     f = open("week4.Trispokedovetiles(laser).gcode", "r").read()
-    count = str(f.count("m10 P1"))
-    open("week/lasers.pew", "w").write(count)
+    count = str(f.count("M10 P1"))
+    open("week4/lasers.pew", "w").write(count)
 
 
 if __name__ == "__main__":
