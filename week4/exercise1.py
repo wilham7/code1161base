@@ -28,7 +28,10 @@ def success_is_relative():
     # this depends on excecution context. Take a look at your CWD and remember
     # that it changes.
     # print(path, CWD)
-    pass
+    pathfile = 'week1/pySuccessMessage.json'
+    filed = open(pathfile, "r")
+    return filed.read().strip()
+    filed.close
 
 
 def get_some_details():
@@ -47,12 +50,17 @@ def get_some_details():
          dictionary, you'll need integer indeces for lists, and named keys for
          dictionaries.
     """
-    json_data = open(LOCAL + "/lazyduck.json").read()
+    json_data = open("week4/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName":       None,
-            "password":       None,
-            "postcodePlusID": None
+    lastName = data["results"][0]["name"]["last"]
+    password = data["results"][0]["login"]["password"]
+    Postcode = data["results"][0]["location"]["postcode"]
+    ID = data["results"][0]["id"]["value"]
+    postcodePlusID = int(Postcode) + int(ID)
+    return {"lastName":       lastName,
+            "password":       password,
+            "postcodePlusID": postcodePlusID
             }
 
 
@@ -88,7 +96,21 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. ?len=
     """
-    pass
+    url = "http://randomword.setgetgo.com/get.php?len="
+    pyramid = []
+    lengthWord = 3
+    while lengthWord < 20:
+        res = requests.get(url + str(lengthWord)).text
+        pyramid.append(res)
+        lengthWord += 2
+
+    lengthWord = 20
+    while lengthWord >= 4:
+        res = requests.get(url + str(lengthWord)).text
+        pyramid.append(str(res))
+        lengthWord -= 2
+
+    return pyramid
 
 
 def wunderground():
@@ -112,10 +134,10 @@ def wunderground():
     the_json = json.loads(r.text)
     obs = the_json['current_observation']
 
-    return {"state":           None,
-            "latitude":        None,
-            "longitude":       None,
-            "local_tz_offset": None}
+    return {"state":           obs["display_location"]["state"],
+            "latitude":        obs["observation_location"]["latitude"],
+            "longitude":       obs["observation_location"]["longitude"],
+            "local_tz_offset": obs["local_tz_offset"]}
 
 
 def diarist():
@@ -131,7 +153,9 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
-    pass
+    f = open("week4.Trispokedovetiles(laser).gcode", "r").read()
+    count = str(f.count("m10 P1"))
+    open("week/lasers.pew", "w").write(count)
 
 
 if __name__ == "__main__":
