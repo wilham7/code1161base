@@ -57,7 +57,6 @@ def fizz_buzz():
             print("Buzz")
         else:
             print(count)
-
         count = count + 1
     return fizzBuzzList
 
@@ -69,10 +68,8 @@ def put_behind_bars(input_string="very naughty boy"):
     e.g. "very naughty boy" should return "|v|e|r|y| |n|a|u|g|h|t|y| |b|o|y|"
     TIP: make sure that you have a pipe on both ends of the string.
     """
-    bars = []
     s = input_string
-    print("|" + ("|".join(s)) + "|")
-    return bars
+    return ("|" + ("|".join(s)) + "|")
 
 
 def pet_filter(letter="a"):
@@ -88,7 +85,7 @@ def pet_filter(letter="a"):
     filterlist = set(letter)
     for word in pets:
             if filterlist & set(word):
-                print(word)
+                return word
 
 
 def best_letter_for_pets():
