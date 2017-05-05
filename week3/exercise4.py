@@ -30,7 +30,7 @@ def binary_search(low, high, actual_number, counter=0):
     elif int((low + high)/2) > actual_number:
         return binary_search(low, (low+high)/2, actual_number, counter+1)
     else:
-        return binary_search((low+high)/2, high, actual_number, counter+1)
+        return binary_search((low+high)/2, high, actual_number, counter+1
 
 
 if __name__ == "__main__":

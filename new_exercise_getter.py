@@ -19,6 +19,8 @@ def get_the_updates():
         "/week5/exercise2.py",
         "/week5/exercise3.py",
         "/week5/exercise4.py",
+        "/week8/exercise1.py",
+        "/week8/tests.py",
         ""
     ]
 
