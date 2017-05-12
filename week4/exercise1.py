@@ -101,7 +101,15 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. ?len=
     """
-    pass
+    half1 = []
+    half2 = []
+    url = "http://www.setgetgo.com/randomword/get.php?len="
+    for length in range(3, 21):
+        if length % 2 == 1:
+            half1.append(requests.get(url+str(length)).text)
+        else:
+            half2 = [requests.get(url+str(length)).text] + half2
+    return half1 + half2
 
 
 def wunderground():
@@ -116,7 +124,7 @@ def wunderground():
          variable and then future access will be easier.
     """
     base = "http://api.wunderground.com/api/"
-    api_key = "YOUR KEY - REGISTER TO GET ONE"
+    api_key = "8a40fb7cb13b5c26"
     country = "AU"
     city = "Sydney"
     template = "{base}/{key}/conditions/q/{country}/{city}.json"
@@ -124,11 +132,14 @@ def wunderground():
     r = requests.get(url)
     the_json = json.loads(r.text)
     obs = the_json['current_observation']
-
-    return {"state":           None,
-            "latitude":        None,
-            "longitude":       None,
-            "local_tz_offset": None}
+    state = obs["display_location"]["state"]
+    latitude = obs["observation_location"]["latitude"]
+    longitude = obs["observation_location"]["longitude"]
+    local_tz_offset = obs["local_tz_offset"]
+    return {"state":           state,
+            "latitude":        latitude,
+            "longitude":       longitude,
+            "local_tz_offset": local_tz_offset}
 
 
 def diarist():
@@ -144,7 +155,18 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
-    pass
+    path = 'week4/Trispokedovetiles(laser).gcode'
+    filed = open(path, "r")
+    word = "M10 P1"
+    count = 0
+    for word in filed.read():
+        count += 1
+    filed.close
+    print(count)
+    a_path = "/week4/lasers.pew"
+    laserfile = open(a_path, "w")
+    laserfile.write(count)
+    laserfile.close()
 
 
 if __name__ == "__main__":
