@@ -85,7 +85,6 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-
     while True:
         try:
             input_number = int(raw_input(message))
@@ -101,7 +100,6 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-
     message = "Give me a number between {low}, and {high}:".format(low=low,
                                                                    high=high)
     while True:

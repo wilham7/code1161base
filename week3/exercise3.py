@@ -1,4 +1,5 @@
 """Week 3, Exercise 3.
+
 Steps on the way to making your own guessing game.
 """
 from __future__ import division
@@ -10,6 +11,7 @@ import random
 
 def advancedGuessingGame():
     """Play a guessing game with a user.
+
     The exercise here is to rewrite the exampleGuessingGame() function
     from exercise 3, but to allow for:
     * a lower bound to be entered, e.g. guess numbers between 10 and 20
