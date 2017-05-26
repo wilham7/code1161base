@@ -7,6 +7,7 @@ from __future__ import print_function
 
 def binary_search(low, high, actual_number, counter=0):
     """Do a binary search.
+
     This is going to be your first 'algorithm' in the usual sense of the word!
     you'll give it a range to guess inside, and then use binary search to home
     in on the actual_number.
@@ -24,7 +25,6 @@ def binary_search(low, high, actual_number, counter=0):
       (You should remove them from the file, not comment them out, the
       tests aren't that smart yet.)
     """
-    # print(str(counter), str(low), str(high))
     if int((low + high)/2) == actual_number:
         return {"guess": actual_number, "tries": counter}
     elif int((low + high)/2) > actual_number:
