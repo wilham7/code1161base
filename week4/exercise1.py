@@ -99,7 +99,7 @@ def wordy_pyramid():
     url = "http://randomword.setgetgo.com/get.php?len="
     pyramid = []
     lengthWord = 3
-    while lengthWord < 21:
+    while lengthWord < 20:
         res = requests.get(url + str(lengthWord)).text
         pyramid.append(res)
         lengthWord += 2

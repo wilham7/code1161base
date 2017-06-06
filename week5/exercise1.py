@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+G# -*- coding: UTF-8 -*-
 """Refactoring.
 
 This excercise is very similar to week 2, exercise 2. It contains a complete
@@ -61,7 +61,8 @@ def do_bunch_of_bad_things():
 # return a lit of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
-    pass
+    print("getting reading to start in {}".format(number))
+    number = "1"
 
 
 # TRIANGLES
@@ -74,7 +75,10 @@ def countdown(message, start, stop, completion_message):
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
 def calculate_hypotenuse(base, height):
-    pass
+    a = height
+    b = base
+    hyp = (a**2) + (b**2)
+    return hyp
 
 
 def calculate_area(base, height):

@@ -44,17 +44,17 @@ def fizz_buzz():
     Return a list that has an integer if the number isn't special, and a string
     if it is. E.g. [1, 2, "Fizz", 4, "Buzz", 6, 7, ...]
     """
-    #fizzbuzzlist []
-    #for j in range(100):
-    #    if j % 3 == 0 and j % 5 == 0:
-    #        fizzbuzzlist.append("FizzBuzz")
-    #    elif j % 3 == 0
-    #        fizzbuzzlist.append("Fizz")
-    #    elif j % 5 == 0
-    #        fizzbuzzlist.append("Buzz")
-    #    else:
-    #        fizzbuzzlist.append(j)
-    #    return (fizzbuzzlist)
+    fizzbuzzlist []
+    for j in range(100):
+        if j % 3 == 0 and j % 5 == 0:
+            fizzbuzzlist.append("FizzBuzz")
+        elif j % 3 == 0
+            fizzbuzzlist.append("Fizz")
+        elif j % 5 == 0
+            fizzbuzzlist.append("Buzz")
+        else:
+            fizzbuzzlist.append(j)
+    return (fizzbuzzlist)
 
 def put_behind_bars(input_string="very naughty boy"):
     """Interleave the input_string with pipes.
