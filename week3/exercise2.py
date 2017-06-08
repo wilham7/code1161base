@@ -23,15 +23,15 @@ def exampleGuessingGame():
     guessed = False
 
     while not guessed:
-        guessedNumber = int(raw_input("guess a number: "))
-        print("you guessed {},".format(guessedNumber),)
+        guessedNumber = int(raw_input("Guess a number: "))
+        print("You guessed {},".format(guessedNumber),)
         if guessedNumber == actualNumber:
-            print("you got it!! It was {}".format(actualNumber))
+            print("You got it!! It was {}".format(actualNumber))
             guessed = True
         elif guessedNumber < actualNumber:
-            print("too small, try again ")
+            print("Too small, try again ")
         else:
-            print("too big, try again   ")
+            print("Too big, try again   ")
     return "You got it!"
 
 
