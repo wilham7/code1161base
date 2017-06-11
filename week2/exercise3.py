@@ -245,7 +245,17 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pass
+    pyramid = []
+    height = 5
+    for y in range(height):
+        line = []
+        for x in range(height*2-1):
+            if x >= height - 1 - y and x <= height + y - 1:
+                line.append('*')
+            else:
+                line.append(' ')
+        pyramid.append(line)
+    return pyramid
 
 
 def lp(some_kind_of_list, exercise_name):
